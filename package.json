@@ -1,0 +1,30 @@
+{
+  "name": "bin-packing-demo",
+  "version": "1.0.0",
+  "description": "Demo of three bin-packing algorithms",
+  "keywords": [
+    "bin-packing",
+    "algorithms",
+    "ai"
+  ],
+  "license": "ISC",
+  "author": "R Wood, Cursor",
+  "type": "commonjs",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node server.ts",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
