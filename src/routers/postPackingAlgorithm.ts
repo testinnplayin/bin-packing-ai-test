@@ -15,7 +15,7 @@ interface PackResponse {
 const postPackingAlgorithmRouter = Router();
   
   // API endpoint to run bin-packing algorithms
-postPackingAlgorithmRouter.post('/api/pack', (req: Request<{}, PackResponse, PackRequest>, res: Response<PackResponse | { error: string }>) => {
+postPackingAlgorithmRouter.post('/api/compare-packing-algorithms', (req: Request<{}, PackResponse, PackRequest>, res: Response<PackResponse | { error: string }>) => {
     const { items, binCapacity } = req.body;
 
     if (!items || !Array.isArray(items) || !binCapacity) {

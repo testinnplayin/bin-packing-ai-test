@@ -1,4 +1,4 @@
-import { BinPackingResult } from "../domain";
+import { BinPackingAlgorithmName, BinPackingResult } from "../domain";
 import { firstFit } from "./firstFit";
 
 /**
@@ -10,6 +10,6 @@ export function firstFitDecreasing(items: number[], binCapacity: number): BinPac
     const sortedItems = [...items].sort((a, b) => b - a);
     return {
       ...firstFit(sortedItems, binCapacity),
-      algorithm: 'First Fit Decreasing'
+      algorithm: BinPackingAlgorithmName.FIRST_FIT_DECREASING
     };
 }
