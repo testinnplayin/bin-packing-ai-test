@@ -7,10 +7,11 @@ import { calculateEfficiency } from './helpers/calculateEfficiency';
  */
 export function firstFit(items: number[], binCapacity: number): BinPackingResult {
   const bins: number[][] = [];
-  const binCount = bins.length;
+  let binCount = 0;
 
   for (const item of items) {
     let isPlaced = false;
+    binCount = bins.length;
 
     // Try to place in existing bins
     for (let i = 0; i < binCount; i++) {
@@ -23,8 +24,8 @@ export function firstFit(items: number[], binCapacity: number): BinPackingResult
       }
     }
 
-    // If not isPlaced, create new bin
-    if (!isPlaced) {
+    // If not isPlaced, create new bin only if item fits
+    if (!isPlaced && item <= binCapacity) {
       bins.push([item]);
     }
   }
@@ -32,7 +33,7 @@ export function firstFit(items: number[], binCapacity: number): BinPackingResult
   return {
     algorithm: BinPackingAlgorithmName.FIRST_FIT,
     bins,
-    binCount,
+    binCount: bins.length,
     efficiency: calculateEfficiency(bins, binCapacity)
   };
 }
