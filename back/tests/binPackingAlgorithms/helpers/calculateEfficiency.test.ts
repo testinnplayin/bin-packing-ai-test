@@ -26,5 +26,14 @@ describe('calculateEfficiency', () => {
 
     expect(result).toBe('0.00');
   });
+
+  it('should return 0.00 for a list with a single 0', () => {
+    const bins = [[0]];
+    const binCapacity = 5;
+    const result = calculateEfficiency(bins, binCapacity);
+
+    // Total used: 0, Total capacity: 5, Efficiency: 0%
+    expect(result).toBe('0.00');
+  });
 });
 

@@ -8,8 +8,6 @@ import { calculateEfficiency } from "./helpers/calculateEfficiency";
  */
 export function nextFit(items: number[], binCapacity: number): BinPackingResult {
   const bins: number[][] = [];
-  let binCount = bins.length;
-
   let currentBinIndex = -1;
 
   for (const item of items) {
@@ -22,15 +20,17 @@ export function nextFit(items: number[], binCapacity: number): BinPackingResult 
       }
     }
 
-    // Item doesn't fit in current bin, create new bin
-    bins.push([item]);
-    currentBinIndex = binCount - 1;
+    // Item doesn't fit in current bin, create new bin only if item fits
+    if (item <= binCapacity) {
+      bins.push([item]);
+      currentBinIndex = bins.length - 1;
+    }
   }
 
   return {
     algorithm: BinPackingAlgorithmName.NEXT_FIT,
     bins,
-    binCount,
+    binCount: bins.length,
     efficiency: calculateEfficiency(bins, binCapacity)
   };
 }
