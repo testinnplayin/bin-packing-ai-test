@@ -40,6 +40,20 @@ describe('POST /api/compare-algorithms router', () => {
     expect(response.body).toEqual({ error: errorMessage });
   });
 
+  it('should return 500 with a generic message when a non-Error is thrown', async () => {
+    firstFit.mockImplementation(() => {
+      // Simulate throwing something other than an Error instance
+      throw 'non-error value';
+    });
+
+    const response = await request(app)
+      .post('/api/compare-algorithms')
+      .send({ items: [1, 2, 3], binCapacity: 10 });
+
+    expect(response.status).toBe(500);
+    expect(response.body).toEqual({ error: 'Unknown error' });
+  });
+
   it('should return 200 with algorithm results on success', async () => {
     const items = [1, 2, 3];
     const binCapacity = 10;
