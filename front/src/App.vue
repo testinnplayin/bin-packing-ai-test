@@ -1,10 +1,10 @@
 <script setup>
-import HomeView from './views/HomeView.vue'
+  import BinPackingHome from './views/BinPackingHome.vue'
 </script>
 
 <template>
   <main class="layout">
-    <HomeView />
+    <BinPackingHome />
   </main>
 </template>
 

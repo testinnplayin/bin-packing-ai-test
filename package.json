@@ -18,6 +18,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "ts-node server.ts",
+    "dev:client": "npm run dev --prefix front",
     "watch": "tsc --watch"
   },
   "dependencies": {

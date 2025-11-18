@@ -28,6 +28,7 @@ watchEffect(() => {
 
 const parsedItems = computed(() => {
   const raw = itemsInput.value.trim()
+
   if (!raw) {
     return []
   }
@@ -143,4 +144,5 @@ button:disabled {
   margin: 0;
 }
 </style>
+
 

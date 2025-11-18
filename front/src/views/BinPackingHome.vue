@@ -16,10 +16,9 @@ const defaultItems = [4, 8, 1, 4, 2, 1]
     <header class="hero">
       <div>
         <p class="eyebrow">Bin packing playground</p>
-        <h1>Compare strategies and inspect the bins they create.</h1>
+        <h1>Compare bin-packing algorithms and inspect the bins they create.</h1>
         <p class="subhead">
-          Provide a bin capacity and a list of item sizes. We’ll run the server-side algorithms and show
-          their outputs in one place.
+          Provide a bin capacity and a list of numbers as item sizes. We will return a bin-packing result and its efficiency!
         </p>
       </div>
     </header>
@@ -41,7 +40,7 @@ const defaultItems = [4, 8, 1, 4, 2, 1]
     />
 
     <p v-else class="placeholder">
-      Ready when you are—enter some sample data and we’ll fetch the results.
+      Ready when you are! Enter some sample data and we’ll fetch the results.
     </p>
   </section>
 </template>
@@ -96,4 +95,5 @@ h1 {
   margin: 0;
 }
 </style>
+
 
