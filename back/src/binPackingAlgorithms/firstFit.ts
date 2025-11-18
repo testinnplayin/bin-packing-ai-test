@@ -1,4 +1,4 @@
-import { BinPackingResult } from '../domain';
+import { BinPackingAlgorithmName, BinPackingResult } from '../domain';
 import { calculateEfficiency } from './helpers/calculateEfficiency';
 
 /**
@@ -7,29 +7,32 @@ import { calculateEfficiency } from './helpers/calculateEfficiency';
  */
 export function firstFit(items: number[], binCapacity: number): BinPackingResult {
   const bins: number[][] = [];
+  let binCount = 0;
 
   for (const item of items) {
     let isPlaced = false;
+    binCount = bins.length;
 
     // Try to place in existing bins
-    for (let i = 0; i < bins.length; i++) {
-      const currentWeight = bins[i].reduce((sum, currentNum) => sum + currentNum, 0);
-      if (currentWeight + item <= binCapacity) {
-        bins[i].push(item);
+    for (let i = 0; i < binCount; i++) {
+      const bin = bins[i];
+      const currentTotalWeight = bin.reduce((sumOfWeights, currentWeight) => sumOfWeights + currentWeight, 0);
+      if (currentTotalWeight + item <= binCapacity) {
+        bin.push(item);
         isPlaced = true;
         break;
       }
     }
 
-    // If not isPlaced, create new bin
-    if (!isPlaced) {
+    // If not isPlaced, create new bin only if item fits
+    if (!isPlaced && item <= binCapacity) {
       bins.push([item]);
     }
   }
 
   return {
-    algorithm: 'First Fit',
-    bins: bins,
+    algorithm: BinPackingAlgorithmName.FIRST_FIT,
+    bins,
     binCount: bins.length,
     efficiency: calculateEfficiency(bins, binCapacity)
   };

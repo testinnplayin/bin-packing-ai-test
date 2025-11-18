@@ -1,13 +1,9 @@
-import express from 'express';
-import postPackingAlgorithmRouter from './src/routers/postPackingAlgorithm';
-const app = express();
-const PORT = 3000;
+import dotenv from 'dotenv';
+import app from './back/src/app';
 
-// Serve static files from public directory
-app.use(express.static('public'));
-app.use(express.json());
+dotenv.config();
 
-app.use(postPackingAlgorithmRouter);
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
