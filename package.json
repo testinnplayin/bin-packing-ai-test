@@ -10,30 +10,16 @@
   "license": "ISC",
   "author": "R Wood, Cursor",
   "type": "commonjs",
-  "main": "dist/server.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "ts-node server.ts",
+    "test": "npm run test --prefix back",
+    "test:watch": "npm run test:watch --prefix back",
+    "test:coverage": "npm run test:coverage --prefix back",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "npm run build --prefix front",
+    "build:server": "npm run build --prefix back",
+    "start": "npm run start --prefix back",
+    "dev:server": "npm run dev --prefix back",
     "dev:client": "npm run dev --prefix front",
-    "watch": "tsc --watch"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.5",
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.10.1",
-    "@types/supertest": "^6.0.3",
-    "jest": "^30.2.0",
-    "supertest": "^7.1.4",
-    "ts-jest": "^29.4.5",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "watch": "npm run watch --prefix back"
   }
 }

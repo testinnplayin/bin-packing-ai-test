@@ -6,11 +6,17 @@ This project is to test using an AI development tool (Cursor) to set up a basic 
 
 ## Installing and using
 
-First be sure to clone the project locally. Then run an `npm install` both in the main folder and in the front/ folder (we will update the root `package.json` file so that it is in the back and you have to run each part separately (if we have the time).
+First be sure to clone the project locally.
 
-To run the back locally in development mode use the command `npm run dev`. This will pop a back-end using the port `3000` by default.
+Then run an `npm install` both in the `back/` folder and in the `front/` folder.
 
-To run the front locally, from the root you can use `npm run dev:client`, which will run a Vite` server. It should run something by default at http://localhost:5173/
+The back-end, in this case, is a dedicated API server that just handles everything relating to the algorithms.
+
+The front-end, in this case, is a dedicated front-end and a back-end that servers the static files.
+
+To run the back locally in development mode use the command `npm run dev:build`. This will pop a back-end using the port `3000` by default.
+
+To run the front locally, from the root you can use `npm run dev:client`, which will run a `Vite` server. It should run something by default at http://localhost:5173/
 
 You can then play around this very basic front-end.
 
