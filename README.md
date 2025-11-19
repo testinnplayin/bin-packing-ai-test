@@ -14,7 +14,7 @@ The back-end, in this case, is a dedicated API server that just handles everythi
 
 The front-end, in this case, is a dedicated front-end and a back-end that servers the static files.
 
-To run the back locally in development mode use the command `npm run dev:build`. This will pop a back-end using the port `3000` by default.
+To run the back locally in development mode use the command `npm run dev:server`. This will pop a back-end using the port `3000` by default.
 
 To run the front locally, from the root you can use `npm run dev:client`, which will run a `Vite` server. It should run something by default at http://localhost:5173/
 
