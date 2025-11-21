@@ -21,5 +21,8 @@
     "dev:server": "npm run dev --prefix back",
     "dev:client": "npm run dev --prefix front",
     "watch": "npm run watch --prefix back"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0"
   }
 }
